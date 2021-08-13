@@ -1,0 +1,23 @@
+{
+  "name": "music-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwind build src/style.css -o output.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammy-code98/music-player.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sammy-code98/music-player/issues"
+  },
+  "homepage": "https://github.com/sammy-code98/music-player#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.7"
+  }
+}
