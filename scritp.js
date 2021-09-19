@@ -16,7 +16,7 @@ const songs = ["Access Bank", "Empty", "Many Battles", "Glorious"];
 
 // track songs
 
-let songIndex = 3;
+let songIndex = 2;
 // load song into DOM
 
 loadSong(songs[songIndex]);
@@ -24,12 +24,14 @@ loadSong(songs[songIndex]);
 function loadSong(song) {
   title.innerText = song;
   audio.src = `songs/${song}.mp3`;
-  coverImg.src = `images/${song}.jpeg`;
+  coverImg.src = ` images/${song}.jpeg`;
 }
 
 // playsong
 function playSong() {
   containerMusic.classList.add("play");
+  playBtn.querySelector("i.fas").classList.remove("fa-play");
+  playBtn.querySelector("i.fas").classList.add("fa-pause");
 }
 function pauseSong() {}
 
