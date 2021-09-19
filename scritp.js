@@ -7,7 +7,7 @@ const nextBtn = document.querySelector("#next");
 const audio = document.querySelector("#audio");
 const progress = document.querySelector(".progress");
 const progressContainer = document.querySelector(".progress-container");
-const title = document.querySelector(".title");
+const titleSong = document.querySelector(".title");
 const coverImg = document.querySelector(".img-animate");
 
 // titles of songs
@@ -16,13 +16,13 @@ const songs = ["Access Bank", "Empty", "Many Battles", "Glorious"];
 
 // track songs
 
-let songIndex = 2;
+let songIndex = 3;
 // load song into DOM
 
 loadSong(songs[songIndex]);
 
 function loadSong(song) {
-  title.innerText = song;
+  titleSong.innerText = song;
   audio.src = `songs/${song}.mp3`;
   coverImg.src = ` images/${song}.jpeg`;
 }
@@ -30,10 +30,14 @@ function loadSong(song) {
 // playsong
 function playSong() {
   containerMusic.classList.add("play");
+  playBtn.querySelector("i.fas").classList.add("fa-play");
+  playBtn.querySelector("i.fas").classList.remove("fa-pause");
+}
+function pauseSong() {
+  containerMusic.classList.remove("play");
   playBtn.querySelector("i.fas").classList.remove("fa-play");
   playBtn.querySelector("i.fas").classList.add("fa-pause");
 }
-function pauseSong() {}
 
 // events
 playBtn.addEventListener("click", () => {
