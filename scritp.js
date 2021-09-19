@@ -12,7 +12,7 @@ const coverImg = document.querySelector(".img-animate");
 
 // titles of songs
 
-const songs = ["Empty", "Glorious", "Many Battles", "Access Bank"];
+const songs = ["Access Bank", "Empty", "Many Battles", "Glorious"];
 
 // track songs
 
@@ -24,5 +24,21 @@ loadSong(songs[songIndex]);
 function loadSong(song) {
   title.innerText = song;
   audio.src = `songs/${song}.mp3`;
-  coverImg.src = `images/${song}.jpeg`
+  coverImg.src = `images/${song}.jpeg`;
 }
+
+// playsong
+function playSong() {
+  containerMusic.classList.add("play");
+}
+function pauseSong() {}
+
+// events
+playBtn.addEventListener("click", () => {
+  const isPlaying = containerMusic.classList.contains("play");
+  if (isPlaying) {
+    pauseSong();
+  } else {
+    playSong();
+  }
+});
