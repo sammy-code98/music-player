@@ -16,7 +16,7 @@ const songs = ["Access Bank", "Empty", "Many Battles", "Glorious"];
 
 // track songs
 
-let songIndex = 3;
+let songIndex = 1;
 // load song into DOM
 
 loadSong(songs[songIndex]);
@@ -32,13 +32,28 @@ function playSong() {
   containerMusic.classList.add("play");
   playBtn.querySelector("i.fas").classList.add("fa-play");
   playBtn.querySelector("i.fas").classList.remove("fa-pause");
+
+  // audio
+
+  audio.play()
 }
 function pauseSong() {
   containerMusic.classList.remove("play");
   playBtn.querySelector("i.fas").classList.remove("fa-play");
   playBtn.querySelector("i.fas").classList.add("fa-pause");
+
+  audio.pause()
 }
 
+function prevSong(){
+  songIndex--
+  if(songIndex < 0){
+    songIndex =  songs.length - 1
+  }
+}
+function nextSong(){
+
+}
 // events
 playBtn.addEventListener("click", () => {
   const isPlaying = containerMusic.classList.contains("play");
@@ -48,3 +63,10 @@ playBtn.addEventListener("click", () => {
     playSong();
   }
 });
+// prev btn
+prevBtn.addEventListener('click', prevSong)
+//  next btn
+nextBtn.addEventListener('click', nextSong)
+
+
+
