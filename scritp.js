@@ -70,6 +70,14 @@ function updated(e) {
   const progPercent = (currentTime/duration) * 100
   progress.style.width = `${progPercent}%`
 }
+function setProgress(e){
+  const width  = this.clientWidth
+  // console.log(width);
+  const clickX = e.offsetX
+  const duration = audio.duration
+
+  audio.currentTime = (clickX / width) * duration
+}
 // events
 playBtn.addEventListener("click", () => {
   const isPlaying = containerMusic.classList.contains("play");
@@ -85,3 +93,8 @@ audio.addEventListener("timeupdate", updated);
 prevBtn.addEventListener("click", prevSong);
 //  next btn
 nextBtn.addEventListener("click", nextSong);
+
+// progress control
+progressContainer.addEventListener('click', setProgress)
+
+audio.addEventListener('ended', nextSong)
