@@ -35,32 +35,40 @@ function playSong() {
 
   // audio
 
-  audio.play()
+  audio.play();
 }
 function pauseSong() {
   containerMusic.classList.remove("play");
   playBtn.querySelector("i.fas").classList.remove("fa-play");
   playBtn.querySelector("i.fas").classList.add("fa-pause");
 
-  audio.pause()
+  audio.pause();
 }
 
-function prevSong(){
-  songIndex--
-  if(songIndex < 0){
-    songIndex =  songs.length - 1
+function prevSong() {
+  songIndex--;
+  if (songIndex < 0) {
+    songIndex = songs.length - 1;
   }
-  loadSong(songs[songIndex])
-  playSong()
+  loadSong(songs[songIndex]);
+  playSong();
 }
-function nextSong(){
-  songIndex++
-  if(songIndex >  songs.length - 1){
-    songIndex =  0
+function nextSong() {
+  songIndex++;
+  if (songIndex > songs.length - 1) {
+    songIndex = 0;
   }
-  loadSong(songs[songIndex])
-  playSong()
+  loadSong(songs[songIndex]);
+  playSong();
+}
+function updated(e) {
+  // console.log(e.srcElement.currentTime);
+  // console.log(e.srcElement.duration);
 
+  // DESTRUCTURE
+  const { duration, currentTime } = e.srcElement;
+  const progPercent = (currentTime/duration) * 100
+  progress.style.width = `${progPercent}%`
 }
 // events
 playBtn.addEventListener("click", () => {
@@ -71,10 +79,9 @@ playBtn.addEventListener("click", () => {
     playSong();
   }
 });
+
+audio.addEventListener("timeupdate", updated);
 // prev btn
-prevBtn.addEventListener('click', prevSong)
+prevBtn.addEventListener("click", prevSong);
 //  next btn
-nextBtn.addEventListener('click', nextSong)
-
-
-
+nextBtn.addEventListener("click", nextSong);
